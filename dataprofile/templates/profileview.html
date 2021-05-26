@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block title %}
+Profile View
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="px-2 mt-5 mb-5" >
+        <form class="form-inline" style="width: 100%;">
+        <div class="row" style="width: 100%;">
+                <div class="col-lg-10 md-10 sm-11">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" autocomplete="off" style="width: 100%;">
+                </div>
+             <div class="col-lg-2 md-2 sm-1">
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit" style="width: 100%;">Search</button>
+             </div>
+        </div>
+        </form>
+      </div>
+
+
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Middle Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Family Name</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for profile in profiles %}
+        <tr>
+          <td>{{ forloop.counter }} </td>
+          <td>{{ profile.firstname }}</td>
+          <td>{{ profile.middlename }}</td>
+          <td>{{ profile.lastname }}</td>
+          <td>{{ profile.familyname }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </div>
+
+{% endblock %}
